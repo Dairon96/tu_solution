@@ -8,6 +8,16 @@ import 'package:tu_solution/app.dart';
 import 'package:tu_solution/data/database/app_database.dart';
 import 'package:tu_solution/providers/database_providers.dart';
 
+/// Deja que Drift responda (fuera del reloj falso del test) y redibuja.
+Future<void> settle(WidgetTester tester) async {
+  for (var i = 0; i < 5; i++) {
+    await tester.runAsync(
+      () => Future<void>.delayed(const Duration(milliseconds: 100)),
+    );
+    await tester.pump(const Duration(milliseconds: 100));
+  }
+}
+
 /// Prueba de humo: la app arranca con los datos de demo y se puede navegar.
 void main() {
   driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
@@ -26,25 +36,23 @@ void main() {
         child: const TuSolutionApp(),
       ),
     );
-    await tester.runAsync(() => Future.delayed(const Duration(milliseconds: 300)));
-    await tester.pump();
+    await settle(tester);
 
     expect(find.text('Tu Solution'), findsOneWidget);
     expect(find.text('Órdenes abiertas'), findsOneWidget);
     expect(find.text('Trabajo por técnico'), findsOneWidget);
 
     await tester.tap(find.text('Inventario'));
-    await tester.runAsync(() => Future.delayed(const Duration(milliseconds: 300)));
-    await tester.pumpAndSettle();
+    await settle(tester);
     expect(find.text('Batería iPhone 11'), findsOneWidget);
 
     await tester.tap(find.text('Clientes'));
-    await tester.runAsync(() => Future.delayed(const Duration(milliseconds: 300)));
-    await tester.pumpAndSettle();
+    await settle(tester);
     expect(find.text('Ana Rodríguez'), findsOneWidget);
 
-    // Desmontar antes de cerrar la base para no dejar streams activos.
+    // Desmontar la app para cancelar los streams de Drift. La base está en
+    // memoria y se descarta al terminar la prueba.
     await tester.pumpWidget(const SizedBox());
-    await tester.runAsync(db.close);
+    await settle(tester);
   });
 }
