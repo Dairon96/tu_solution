@@ -31,7 +31,7 @@ Las capturas de la app en un emulador o teléfono Android están en la carpeta [
 
 1. Clonar el repositorio:
    ```bash
-   git clone <URL-del-repositorio>
+   git clone https://github.com/Dairon96/tu_solution.git
    cd tu_solution
    ```
 2. Descargar dependencias:
