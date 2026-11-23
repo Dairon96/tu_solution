@@ -1,1 +1,0 @@
-Coloca aquí las capturas: 01_inicio.png, 02_ordenes.png, 03_detalle_orden.png, 04_recibir_equipo.png, 05_historial_equipo.png, 06_inventario.png

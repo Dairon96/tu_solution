@@ -10,15 +10,15 @@ Segundo Examen Parcial — Programación para Dispositivos Móviles, Ingeniería
 
 ## Capturas
 
-Las capturas de la app en un emulador o teléfono Android están en la carpeta [`screenshots/`](screenshots/).
+Capturas reales de la app en un teléfono Samsung Galaxy S20 Ultra (Android 13), en la carpeta [`screenshots/`](screenshots/).
 
 | Inicio | Órdenes | Detalle de orden |
 |---|---|---|
-| ![](screenshots/01_inicio.png) | ![](screenshots/02_ordenes.png) | ![](screenshots/03_detalle_orden.png) |
+| <img src="screenshots/01_inicio.jpg" width="250"> | <img src="screenshots/02_ordenes.jpg" width="250"> | <img src="screenshots/03_detalle_orden.jpg" width="250"> |
 
-| Recibir equipo | Historial del equipo | Inventario |
+| Recibir equipo | Cliente e historial | Inventario |
 |---|---|---|
-| ![](screenshots/04_recibir_equipo.png) | ![](screenshots/05_historial_equipo.png) | ![](screenshots/06_inventario.png) |
+| <img src="screenshots/04_recibir_equipo.jpg" width="250"> | <img src="screenshots/05_historial_cliente.jpg" width="250"> | <img src="screenshots/06_inventario.jpg" width="250"> |
 
 ## Cómo abrir y ejecutar
 
